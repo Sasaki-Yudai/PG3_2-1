@@ -1,24 +1,39 @@
 #include <stdio.h>
-#include "Policecar.h"
-#include "Ambulance.h"
+#include "Circle.h"
+#include "Rectangle.h"
+#include "IShape.h"
 
 int main()
 {
-	printf("出現\n");
-	Car* Cars[2];
 
-	Cars[0] = new Policecar;
-	Cars[1] = new Ambulance;
+	IShape* Shape_[2];
 
-	printf("\nサイレン\n");
-
-	Cars[0]->Purr();
-	Cars[1]->Purr();
-
-	printf("\n帰宅\n");
 	for (int i = 0; i < 2; i++)
 	{
-		delete Cars[i];
+		if (i < 1)
+		{
+			Shape_[i] = new Circle;
+		}
+		else
+		{
+			Shape_[i] = new Rectangle;
+		}
+
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		Shape_[i]->Size();
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		Shape_[i]->Draw();
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		delete Shape_[i];
 	}
 
 	return 0;
