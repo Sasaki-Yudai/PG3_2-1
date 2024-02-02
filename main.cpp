@@ -1,21 +1,25 @@
 #include <stdio.h>
-#include "Enemy.h"
+#include "Policecar.h"
+#include "Ambulance.h"
 
 int main()
 {
+	printf("出現\n");
+	Car* Cars[2];
 
-	Enemy enemy_;
+	Cars[0] = new Policecar;
+	Cars[1] = new Ambulance;
 
-	bool GameLoop = true;
+	printf("\nサイレン\n");
 
-	int i = 0;
+	Cars[0]->Purr();
+	Cars[1]->Purr();
 
-	while (i < 3)
+	printf("\n帰宅\n");
+	for (int i = 0; i < 2; i++)
 	{
-		enemy_.Update();
-		i++;
+		delete Cars[i];
 	}
-
 
 	return 0;
 }
